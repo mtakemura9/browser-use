@@ -52,6 +52,8 @@ Spin up your agent:
 ```bash
 vi agent.py
 ```
+
+```bash
 from langchain_openai import ChatOpenAI
 from browser_use import Agent
 import asyncio
