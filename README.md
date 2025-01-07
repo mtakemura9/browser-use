@@ -18,18 +18,40 @@ To learn more about the library, check out the [documentation 📕](https://docs
 With pip:
 
 ```bash
-pip install browser-use
+cd ~/workspace/browser-use/
+# for uv install shell
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv venv --python 3.11.0
+source .venv/bin/activate
+
+uv pip install browser-use
+uv pip install playwright
 ```
 
-(optional) install playwright:
+if brew inf python@XXX is already installed, uninstall it first
 
 ```bash
-playwright install
+which python3 
+brew uninstall python@3.13
+brew uninstall --ignore-dependencies python@3.13
+brew install asdf
+asdf plugin list-all | grep python
+asdf plugin add python
+asdf list-all python
+asdf install python 3.11.0
+asdf local python 3.11.0
+vi ~/.zshrc
+########
+alias python="python3"
+######## wq!
+python -V
 ```
 
 Spin up your agent:
 
-```python
+```bash
+vi agent.py
+```
 from langchain_openai import ChatOpenAI
 from browser_use import Agent
 import asyncio
@@ -48,7 +70,7 @@ asyncio.run(main())
 And don't forget to add your API keys to your `.env` file.
 
 ```bash
-OPENAI_API_KEY=
+OPENAI_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 For other settings, models, and more, check out the [documentation 📕](https://docs.browser-use.com).

@@ -10,7 +10,7 @@ import sys
 from doctest import OutputChecker
 from pprint import pprint
 
-import pytest
+import pytest # type: ignore
 
 from browser_use.browser.browser import Browser, BrowserConfig
 
